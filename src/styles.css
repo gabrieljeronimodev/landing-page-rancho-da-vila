@@ -4,6 +4,36 @@
 
 @custom-variant dark (&:is(.dark *));
 
+:root {
+  --color-primary: #C0392B;
+  --color-primary-rgb: 192, 57, 43;
+  --color-secondary: #E67E22;
+  --color-secondary-rgb: 230, 126, 34;
+  --color-accent: #F39C12;
+  --color-bg: #FFFFFF;
+  --color-fg: #111827;
+  --color-muted: #F3F4F6;
+  --color-muted-fg: #6B7280;
+  --color-border: #E5E7EB;
+  --color-card: #FFFFFF;
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.08);
+  --shadow-card-hover: 0 8px 32px rgba(0, 0, 0, 0.14);
+  --radius-card: 1rem;
+  --radius-btn: 0.75rem;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Outfit', system-ui, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); color: var(--color-fg); background: var(--color-bg); }
+.font-display { font-family: var(--font-display); }
+
+@keyframes wa-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
+.wa-pulse { animation: wa-pulse 2.2s ease-in-out infinite; }
+
 /*
  * Design system definition.
  *
