@@ -27,7 +27,7 @@ export const Route = createFileRoute("/")({
 
 const OWNER_NAME = "Lovable Studio";
 const OWNER_WHATSAPP = "5511999999999";
-const CLIENT_WHATSAPP = "551127098582";
+const CLIENT_WHATSAPP = "5511925750589";
 const WA_LINK = `https://wa.me/${CLIENT_WHATSAPP}`;
 const OWNER_WA_LINK = `https://wa.me/${OWNER_WHATSAPP}?text=${encodeURIComponent("Vi o protótipo do site e quero saber mais!")}`;
 
@@ -126,7 +126,7 @@ function Navbar() {
           className="bg-[var(--color-primary)] text-white rounded-[var(--radius-btn)] px-5 py-2 text-sm font-semibold hover:opacity-90 transition-opacity inline-flex items-center gap-2"
         >
           <MessageCircle size={16} />
-          <span className="hidden sm:inline">Falar no WhatsApp</span>
+          <span className="hidden sm:inline">Entre em contato</span>
           <span className="sm:hidden">WhatsApp</span>
         </a>
       </div>
@@ -179,7 +179,7 @@ function Hero() {
             rel="noopener"
             className="inline-flex items-center gap-2 bg-[var(--color-primary)] text-white rounded-[var(--radius-btn)] px-6 py-3.5 font-semibold shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] hover:-translate-y-0.5 transition-all"
           >
-            <MessageCircle size={18} /> Falar no WhatsApp
+            <MessageCircle size={18} /> Entre em contato
           </a>
           <a
             href="#services"
@@ -523,7 +523,7 @@ function CTASection() {
           rel="noopener"
           className="relative mt-8 inline-flex items-center gap-2 bg-white text-[var(--color-primary)] rounded-[var(--radius-btn)] px-7 py-3.5 font-bold hover:-translate-y-0.5 transition-transform shadow-lg"
         >
-          <MessageCircle size={18} /> Falar no WhatsApp agora
+          <MessageCircle size={18} /> Entre em contato agora
         </a>
       </motion.div>
     </section>
@@ -548,7 +548,7 @@ function Contact() {
         <div className="bg-white rounded-[var(--radius-card)] p-7 lg:p-8 shadow-[var(--shadow-card)] flex flex-col gap-6">
           <div className="flex flex-col gap-4">
             <InfoRow icon={MapPin} title="Endereço" text="R. Gen. Carneiro, 223 — Vila Arens, Jundiaí - SP" />
-            <InfoRow icon={Phone} title="Telefone / WhatsApp" text="(11) 2709-8582" href={WA_LINK} />
+            <InfoRow icon={Phone} title="Telefone / WhatsApp" text="(11) 92575-0589" href={WA_LINK} />
             <InfoRow icon={Clock} title="Funcionamento" text="Segunda a Sábado, das 11h às 14h30" />
           </div>
 
@@ -621,14 +621,14 @@ function Footer() {
           <div className="font-display text-[1.375rem] font-bold text-white">Rancho Da Vila Arens</div>
           <p className="text-sm text-white/55 mt-1">Comida caseira no peso, no coração de Jundiaí.</p>
           <div className="mt-4 flex gap-3">
-            <SocialLink href="https://www.instagram.com/ranchodavilaarens/" label="Instagram">
+            <SocialLink href="https://www.instagram.com/gabrieljeronimodeveloper/" label="Instagram">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
                 <rect x="2" y="2" width="20" height="20" rx="5" />
                 <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
                 <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
               </svg>
             </SocialLink>
-            <SocialLink href="https://www.facebook.com/ranchodavilaarens" label="Facebook">
+            <SocialLink href="/" label="Facebook - Início da página">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
                 <path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.51 1.49-3.9 3.78-3.9 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.77l-.44 2.89h-2.33v6.99A10 10 0 0 0 22 12z" />
               </svg>
@@ -657,7 +657,7 @@ function Footer() {
           <div className="font-semibold text-white text-sm">Contato</div>
           <div className="flex flex-col gap-2 mt-3 text-sm text-white/60">
             <span>Vila Arens, Jundiaí - SP</span>
-            <a href={WA_LINK} className="hover:text-white transition-colors">(11) 2709-8582</a>
+            <a href={WA_LINK} className="hover:text-white transition-colors">(11) 92575-0589</a>
             <span>Seg a Sáb: 11h às 14h30</span>
           </div>
         </div>
@@ -694,13 +694,13 @@ function WhatsAppFAB() {
       href={WA_LINK}
       target="_blank"
       rel="noopener"
-      aria-label="Falar no WhatsApp"
+      aria-label="Entre em contato"
       className="group fixed right-6 bottom-20 md:bottom-6 z-50 w-14 h-14 rounded-full flex items-center justify-center text-white wa-pulse"
       style={{ background: "#25D366", boxShadow: "0 4px 20px rgba(37,211,102,0.50)" }}
     >
       <MessageCircle size={26} />
       <span className="hidden md:block absolute right-[68px] top-1/2 -translate-y-1/2 bg-white text-[var(--color-fg)] text-xs font-semibold px-3 py-1.5 rounded-lg shadow opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
-        Falar no WhatsApp
+        Entre em contato
       </span>
     </a>
   );
@@ -714,7 +714,7 @@ function MobileStickyCTA() {
       rel="noopener"
       className="block md:hidden fixed bottom-0 left-0 right-0 z-40 h-14 bg-[var(--color-primary)] text-white font-semibold text-sm w-full flex items-center justify-center gap-2 border-t border-white/15"
     >
-      <MessageCircle size={18} /> Falar no WhatsApp
+      <MessageCircle size={18} /> Entre em contato
     </a>
   );
 }
