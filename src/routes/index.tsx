@@ -25,11 +25,8 @@ export const Route = createFileRoute("/")({
   component: LandingPage,
 });
 
-const OWNER_NAME = "Lovable Studio";
-const OWNER_WHATSAPP = "5511999999999";
-const CLIENT_WHATSAPP = "551127098582";
+const CLIENT_WHATSAPP = "5511925750589";
 const WA_LINK = `https://wa.me/${CLIENT_WHATSAPP}`;
-const OWNER_WA_LINK = `https://wa.me/${OWNER_WHATSAPP}?text=${encodeURIComponent("Vi o protótipo do site e quero saber mais!")}`;
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 28 },
@@ -60,29 +57,11 @@ function LandingPage() {
   );
 }
 
-/* ---------- Top wrapper: demo banner + navbar ---------- */
+/* ---------- Top wrapper: navbar ---------- */
 function TopWrapper() {
   return (
     <div className="fixed top-0 left-0 right-0 z-50">
-      <DemoBanner />
       <Navbar />
-    </div>
-  );
-}
-
-function DemoBanner() {
-  return (
-    <div className="h-9 bg-slate-900 text-white flex items-center justify-center gap-2 px-4 text-xs sm:text-sm">
-      <span className="hidden sm:inline">🚀 Protótipo criado para Rancho Da Vila Arens — gostou? Vamos deixar assim!</span>
-      <span className="sm:hidden">🚀 Protótipo Rancho Da Vila Arens</span>
-      <a
-        href={OWNER_WA_LINK}
-        target="_blank"
-        rel="noopener"
-        className="bg-white/10 hover:bg-white/20 rounded-full px-3 py-0.5 font-semibold transition-colors duration-200"
-      >
-        Falar com {OWNER_NAME}
-      </a>
     </div>
   );
 }
@@ -101,7 +80,7 @@ function Navbar() {
     >
       <div className="flex items-center justify-between px-6 lg:px-12 h-16">
         <a href="#top" className="font-display text-xl font-bold text-[var(--color-primary)]">
-          Rancho Da Vila Arens
+          Rancho da Vila
         </a>
         <nav className="hidden lg:flex items-center gap-8">
           {[
@@ -126,7 +105,7 @@ function Navbar() {
           className="bg-[var(--color-primary)] text-white rounded-[var(--radius-btn)] px-5 py-2 text-sm font-semibold hover:opacity-90 transition-opacity inline-flex items-center gap-2"
         >
           <MessageCircle size={16} />
-          <span className="hidden sm:inline">Falar no WhatsApp</span>
+          <span className="hidden sm:inline">Entre em contato</span>
           <span className="sm:hidden">WhatsApp</span>
         </a>
       </div>
@@ -169,7 +148,7 @@ function Hero() {
           variants={fadeUp}
           className="mt-6 text-lg text-[var(--color-muted-fg)] max-w-2xl mx-auto leading-relaxed"
         >
-          Self-service variado, marmitex pra levar e drive-through ágil — comida de verdade, feita todo dia, no coração de Vila Arens. Você paga só pelo que comer.
+          Self-service variado, marmitex pra levar e drive-through ágil! Comida de verdade, feita todo dia, no coração de Vila Arens. Você paga só pelo que comer.
         </motion.p>
 
         <motion.div variants={fadeUp} className="mt-9 flex flex-wrap items-center justify-center gap-3">
@@ -179,7 +158,7 @@ function Hero() {
             rel="noopener"
             className="inline-flex items-center gap-2 bg-[var(--color-primary)] text-white rounded-[var(--radius-btn)] px-6 py-3.5 font-semibold shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] hover:-translate-y-0.5 transition-all"
           >
-            <MessageCircle size={18} /> Falar no WhatsApp
+            <MessageCircle size={18} /> Entre em contato
           </a>
           <a
             href="#services"
@@ -201,7 +180,7 @@ function Hero() {
             <Award size={16} className="text-[var(--color-primary)]" /> 8+ anos em Vila Arens
           </span>
           <span className="inline-flex items-center gap-2">
-            <Clock size={16} className="text-[var(--color-primary)]" /> Seg a Sáb · 11h–14h30
+            <Clock size={16} className="text-[var(--color-primary)]" /> Seg a Sáb · 11h às 14h30
           </span>
         </motion.div>
       </motion.div>
@@ -380,7 +359,7 @@ function About() {
             Comida de família, há mais de 8 anos no bairro.
           </motion.h2>
           <motion.p variants={fadeUp} className="mt-5 text-[var(--color-muted-fg)] leading-relaxed">
-            O Rancho Da Vila Arens nasceu da vontade de servir, todo dia, aquele almoço gostoso que a gente comeria em casa. Cozinha aberta, tempero honesto e atendimento que abraça — esse é o nosso jeito de receber quem chega.
+            O Rancho da Vila nasceu da vontade de servir, todo dia, aquele almoço gostoso que a gente comeria em casa. Cozinha aberta, tempero honesto e atendimento que abraça. Esse é o nosso jeito de receber quem chega.
           </motion.p>
           <motion.p variants={fadeUp} className="mt-3 text-[var(--color-muted-fg)] leading-relaxed">
             Mais do que um restaurante, somos ponto de encontro de quem trabalha, mora e passa por Vila Arens.
@@ -461,7 +440,7 @@ function Testimonials() {
   return (
     <section id="testimonials" className="px-6 lg:px-12 py-20 lg:py-28">
       <SectionHead eyebrow="Quem almoça aqui, volta" title="O que dizem nossos clientes">
-        Mais de 380 avaliações 5 estrelas no Google — e a melhor avaliação é você sentar à mesa.
+        Mais de 380 avaliações 5 estrelas no Google. A melhor avaliação é você sentar à mesa.
       </SectionHead>
 
       <motion.div
@@ -523,7 +502,7 @@ function CTASection() {
           rel="noopener"
           className="relative mt-8 inline-flex items-center gap-2 bg-white text-[var(--color-primary)] rounded-[var(--radius-btn)] px-7 py-3.5 font-bold hover:-translate-y-0.5 transition-transform shadow-lg"
         >
-          <MessageCircle size={18} /> Falar no WhatsApp agora
+          <MessageCircle size={18} /> Entre em contato agora
         </a>
       </motion.div>
     </section>
@@ -547,8 +526,8 @@ function Contact() {
       <div className="mt-12 max-w-6xl mx-auto grid lg:grid-cols-2 gap-8">
         <div className="bg-white rounded-[var(--radius-card)] p-7 lg:p-8 shadow-[var(--shadow-card)] flex flex-col gap-6">
           <div className="flex flex-col gap-4">
-            <InfoRow icon={MapPin} title="Endereço" text="R. Gen. Carneiro, 223 — Vila Arens, Jundiaí - SP" />
-            <InfoRow icon={Phone} title="Telefone / WhatsApp" text="(11) 2709-8582" href={WA_LINK} />
+            <InfoRow icon={MapPin} title="Endereço" text="R. Gen. Carneiro, 223, Vila Arens, Jundiaí - SP" />
+            <InfoRow icon={Phone} title="Telefone / WhatsApp" text="(11) 92575-0589" href={WA_LINK} />
             <InfoRow icon={Clock} title="Funcionamento" text="Segunda a Sábado, das 11h às 14h30" />
           </div>
 
@@ -580,7 +559,7 @@ function Contact() {
 
         <div className="rounded-2xl overflow-hidden shadow-[var(--shadow-card)] min-h-[400px] h-full">
           <iframe
-            title="Mapa Rancho Da Vila Arens"
+            title="Mapa Rancho da Vila"
             src="https://maps.google.com/maps?q=R.+Gen.+Carneiro,+223+-+Vila+Arens,+Jundia%C3%AD+-+SP,+13202-590&t=&z=15&ie=UTF8&iwloc=&output=embed"
             width="100%"
             height="100%"
@@ -618,17 +597,17 @@ function Footer() {
     <footer className="bg-[var(--color-fg)] text-white pt-12 pb-6 px-6">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
         <div>
-          <div className="font-display text-[1.375rem] font-bold text-white">Rancho Da Vila Arens</div>
+          <div className="font-display text-[1.375rem] font-bold text-white">Rancho da Vila</div>
           <p className="text-sm text-white/55 mt-1">Comida caseira no peso, no coração de Jundiaí.</p>
           <div className="mt-4 flex gap-3">
-            <SocialLink href="https://www.instagram.com/ranchodavilaarens/" label="Instagram">
+            <SocialLink href="https://www.instagram.com/gabrieljeronimodeveloper/" label="Instagram">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
                 <rect x="2" y="2" width="20" height="20" rx="5" />
                 <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
                 <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
               </svg>
             </SocialLink>
-            <SocialLink href="https://www.facebook.com/ranchodavilaarens" label="Facebook">
+            <SocialLink href="/" label="Facebook - Início da página">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
                 <path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.51 1.49-3.9 3.78-3.9 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.77l-.44 2.89h-2.33v6.99A10 10 0 0 0 22 12z" />
               </svg>
@@ -657,17 +636,14 @@ function Footer() {
           <div className="font-semibold text-white text-sm">Contato</div>
           <div className="flex flex-col gap-2 mt-3 text-sm text-white/60">
             <span>Vila Arens, Jundiaí - SP</span>
-            <a href={WA_LINK} className="hover:text-white transition-colors">(11) 2709-8582</a>
+            <a href={WA_LINK} className="hover:text-white transition-colors">(11) 92575-0589</a>
             <span>Seg a Sáb: 11h às 14h30</span>
           </div>
         </div>
       </div>
 
       <div className="border-t border-white/10 mt-10 pt-6 flex justify-between flex-wrap gap-4 max-w-5xl mx-auto">
-        <span className="text-xs text-white/40">© 2026 Rancho Da Vila Arens. Todos os direitos reservados.</span>
-        <a href={OWNER_WA_LINK} target="_blank" rel="noopener" className="text-xs text-white/40 hover:text-white/70 transition-colors">
-          Site demonstrativo desenvolvido por {OWNER_NAME}
-        </a>
+        <span className="text-xs text-white/40">© 2026 Rancho da Vila. Todos os direitos reservados.</span>
       </div>
     </footer>
   );
@@ -694,13 +670,13 @@ function WhatsAppFAB() {
       href={WA_LINK}
       target="_blank"
       rel="noopener"
-      aria-label="Falar no WhatsApp"
+      aria-label="Entre em contato"
       className="group fixed right-6 bottom-20 md:bottom-6 z-50 w-14 h-14 rounded-full flex items-center justify-center text-white wa-pulse"
       style={{ background: "#25D366", boxShadow: "0 4px 20px rgba(37,211,102,0.50)" }}
     >
       <MessageCircle size={26} />
       <span className="hidden md:block absolute right-[68px] top-1/2 -translate-y-1/2 bg-white text-[var(--color-fg)] text-xs font-semibold px-3 py-1.5 rounded-lg shadow opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
-        Falar no WhatsApp
+        Entre em contato
       </span>
     </a>
   );
@@ -714,7 +690,7 @@ function MobileStickyCTA() {
       rel="noopener"
       className="block md:hidden fixed bottom-0 left-0 right-0 z-40 h-14 bg-[var(--color-primary)] text-white font-semibold text-sm w-full flex items-center justify-center gap-2 border-t border-white/15"
     >
-      <MessageCircle size={18} /> Falar no WhatsApp
+      <MessageCircle size={18} /> Entre em contato
     </a>
   );
 }
