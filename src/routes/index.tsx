@@ -25,11 +25,8 @@ export const Route = createFileRoute("/")({
   component: LandingPage,
 });
 
-const OWNER_NAME = "Lovable Studio";
-const OWNER_WHATSAPP = "5511999999999";
 const CLIENT_WHATSAPP = "5511925750589";
 const WA_LINK = `https://wa.me/${CLIENT_WHATSAPP}`;
-const OWNER_WA_LINK = `https://wa.me/${OWNER_WHATSAPP}?text=${encodeURIComponent("Vi o protótipo do site e quero saber mais!")}`;
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 28 },
@@ -60,29 +57,11 @@ function LandingPage() {
   );
 }
 
-/* ---------- Top wrapper: demo banner + navbar ---------- */
+/* ---------- Top wrapper: navbar ---------- */
 function TopWrapper() {
   return (
     <div className="fixed top-0 left-0 right-0 z-50">
-      <DemoBanner />
       <Navbar />
-    </div>
-  );
-}
-
-function DemoBanner() {
-  return (
-    <div className="h-9 bg-slate-900 text-white flex items-center justify-center gap-2 px-4 text-xs sm:text-sm">
-      <span className="hidden sm:inline">🚀 Protótipo criado para Rancho Da Vila Arens — gostou? Vamos deixar assim!</span>
-      <span className="sm:hidden">🚀 Protótipo Rancho Da Vila Arens</span>
-      <a
-        href={OWNER_WA_LINK}
-        target="_blank"
-        rel="noopener"
-        className="bg-white/10 hover:bg-white/20 rounded-full px-3 py-0.5 font-semibold transition-colors duration-200"
-      >
-        Falar com {OWNER_NAME}
-      </a>
     </div>
   );
 }
@@ -101,7 +80,7 @@ function Navbar() {
     >
       <div className="flex items-center justify-between px-6 lg:px-12 h-16">
         <a href="#top" className="font-display text-xl font-bold text-[var(--color-primary)]">
-          Rancho Da Vila Arens
+          Rancho da Vila
         </a>
         <nav className="hidden lg:flex items-center gap-8">
           {[
@@ -169,7 +148,7 @@ function Hero() {
           variants={fadeUp}
           className="mt-6 text-lg text-[var(--color-muted-fg)] max-w-2xl mx-auto leading-relaxed"
         >
-          Self-service variado, marmitex pra levar e drive-through ágil — comida de verdade, feita todo dia, no coração de Vila Arens. Você paga só pelo que comer.
+          Self-service variado, marmitex pra levar e drive-through ágil! Comida de verdade, feita todo dia, no coração de Vila Arens. Você paga só pelo que comer.
         </motion.p>
 
         <motion.div variants={fadeUp} className="mt-9 flex flex-wrap items-center justify-center gap-3">
@@ -201,7 +180,7 @@ function Hero() {
             <Award size={16} className="text-[var(--color-primary)]" /> 8+ anos em Vila Arens
           </span>
           <span className="inline-flex items-center gap-2">
-            <Clock size={16} className="text-[var(--color-primary)]" /> Seg a Sáb · 11h–14h30
+            <Clock size={16} className="text-[var(--color-primary)]" /> Seg a Sáb · 11h às 14h30
           </span>
         </motion.div>
       </motion.div>
@@ -380,7 +359,7 @@ function About() {
             Comida de família, há mais de 8 anos no bairro.
           </motion.h2>
           <motion.p variants={fadeUp} className="mt-5 text-[var(--color-muted-fg)] leading-relaxed">
-            O Rancho Da Vila Arens nasceu da vontade de servir, todo dia, aquele almoço gostoso que a gente comeria em casa. Cozinha aberta, tempero honesto e atendimento que abraça — esse é o nosso jeito de receber quem chega.
+            O Rancho da Vila nasceu da vontade de servir, todo dia, aquele almoço gostoso que a gente comeria em casa. Cozinha aberta, tempero honesto e atendimento que abraça. Esse é o nosso jeito de receber quem chega.
           </motion.p>
           <motion.p variants={fadeUp} className="mt-3 text-[var(--color-muted-fg)] leading-relaxed">
             Mais do que um restaurante, somos ponto de encontro de quem trabalha, mora e passa por Vila Arens.
@@ -461,7 +440,7 @@ function Testimonials() {
   return (
     <section id="testimonials" className="px-6 lg:px-12 py-20 lg:py-28">
       <SectionHead eyebrow="Quem almoça aqui, volta" title="O que dizem nossos clientes">
-        Mais de 380 avaliações 5 estrelas no Google — e a melhor avaliação é você sentar à mesa.
+        Mais de 380 avaliações 5 estrelas no Google. A melhor avaliação é você sentar à mesa.
       </SectionHead>
 
       <motion.div
@@ -547,7 +526,7 @@ function Contact() {
       <div className="mt-12 max-w-6xl mx-auto grid lg:grid-cols-2 gap-8">
         <div className="bg-white rounded-[var(--radius-card)] p-7 lg:p-8 shadow-[var(--shadow-card)] flex flex-col gap-6">
           <div className="flex flex-col gap-4">
-            <InfoRow icon={MapPin} title="Endereço" text="R. Gen. Carneiro, 223 — Vila Arens, Jundiaí - SP" />
+            <InfoRow icon={MapPin} title="Endereço" text="R. Gen. Carneiro, 223, Vila Arens, Jundiaí - SP" />
             <InfoRow icon={Phone} title="Telefone / WhatsApp" text="(11) 92575-0589" href={WA_LINK} />
             <InfoRow icon={Clock} title="Funcionamento" text="Segunda a Sábado, das 11h às 14h30" />
           </div>
@@ -580,7 +559,7 @@ function Contact() {
 
         <div className="rounded-2xl overflow-hidden shadow-[var(--shadow-card)] min-h-[400px] h-full">
           <iframe
-            title="Mapa Rancho Da Vila Arens"
+            title="Mapa Rancho da Vila"
             src="https://maps.google.com/maps?q=R.+Gen.+Carneiro,+223+-+Vila+Arens,+Jundia%C3%AD+-+SP,+13202-590&t=&z=15&ie=UTF8&iwloc=&output=embed"
             width="100%"
             height="100%"
@@ -618,7 +597,7 @@ function Footer() {
     <footer className="bg-[var(--color-fg)] text-white pt-12 pb-6 px-6">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
         <div>
-          <div className="font-display text-[1.375rem] font-bold text-white">Rancho Da Vila Arens</div>
+          <div className="font-display text-[1.375rem] font-bold text-white">Rancho da Vila</div>
           <p className="text-sm text-white/55 mt-1">Comida caseira no peso, no coração de Jundiaí.</p>
           <div className="mt-4 flex gap-3">
             <SocialLink href="https://www.instagram.com/gabrieljeronimodeveloper/" label="Instagram">
@@ -664,10 +643,7 @@ function Footer() {
       </div>
 
       <div className="border-t border-white/10 mt-10 pt-6 flex justify-between flex-wrap gap-4 max-w-5xl mx-auto">
-        <span className="text-xs text-white/40">© 2026 Rancho Da Vila Arens. Todos os direitos reservados.</span>
-        <a href={OWNER_WA_LINK} target="_blank" rel="noopener" className="text-xs text-white/40 hover:text-white/70 transition-colors">
-          Site demonstrativo desenvolvido por {OWNER_NAME}
-        </a>
+        <span className="text-xs text-white/40">© 2026 Rancho da Vila. Todos os direitos reservados.</span>
       </div>
     </footer>
   );
