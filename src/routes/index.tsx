@@ -1,4 +1,3 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "react";
 import { motion, useInView, useReducedMotion, animate, type Variants } from "motion/react";
 import {
@@ -21,10 +20,6 @@ import danielaAsset from "@/assets/testimonial-daniela.png.asset.json";
 import eddyAsset from "@/assets/testimonial-eddy.png.asset.json";
 import renanAsset from "@/assets/testimonial-renan.png.asset.json";
 
-export const Route = createFileRoute("/")({
-  component: LandingPage,
-});
-
 const CLIENT_WHATSAPP = "5511925750589";
 const WA_LINK = `https://wa.me/${CLIENT_WHATSAPP}`;
 
@@ -37,7 +32,7 @@ const stagger: Variants = {
   visible: { transition: { staggerChildren: 0.08 } },
 };
 
-function LandingPage() {
+export default function LandingPage() {
   return (
     <div className="pb-16 md:pb-0 bg-[var(--color-bg)] text-[var(--color-fg)]">
       <TopWrapper />
