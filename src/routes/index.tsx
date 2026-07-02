@@ -7,8 +7,6 @@ import {
   Users,
   Award,
   UtensilsCrossed,
-  Package,
-  Car,
   HeartHandshake,
   Leaf,
   Clock,
@@ -16,9 +14,14 @@ import {
   Phone,
   Sparkles,
 } from "lucide-react";
-import danielaAsset from "@/assets/testimonial-daniela.png.asset.json";
-import eddyAsset from "@/assets/testimonial-eddy.png.asset.json";
-import renanAsset from "@/assets/testimonial-renan.png.asset.json";
+import danielaImg from "@/assets/daniela.jpg";
+import eddyImg from "@/assets/eddy.jpg";
+import renanImg from "@/assets/renan.jpg";
+import heroBg from "@/assets/images/hero-bg.jpg";
+import aboutImg from "@/assets/images/about-restaurant.jpg";
+import buffetImg from "@/assets/images/service-buffet.jpg";
+import marmitexImg from "@/assets/images/service-marmitex.jpg";
+import driveImg from "@/assets/images/service-drive.jpg";
 
 const CLIENT_WHATSAPP = "5511925750589";
 const WA_LINK = `https://wa.me/${CLIENT_WHATSAPP}`;
@@ -117,14 +120,24 @@ function Hero() {
       id="top"
       className="relative overflow-hidden px-6 lg:px-12 pt-12 pb-20 lg:pt-20 lg:pb-28"
     >
-      {/* decorative blobs */}
-      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute -top-32 -left-24 w-[28rem] h-[28rem] rounded-full blur-3xl opacity-30 bg-[radial-gradient(circle,var(--color-primary),transparent_60%)]" />
-        <div className="absolute top-20 -right-24 w-[32rem] h-[32rem] rounded-full blur-3xl opacity-25 bg-[radial-gradient(circle,var(--color-secondary),transparent_60%)]" />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white" />
+      {/* Background image with dark overlay */}
+      <div aria-hidden className="absolute inset-0 z-0">
+        <img
+          src={heroBg}
+          alt=""
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-fg)]/80 via-[var(--color-fg)]/60 to-[var(--color-fg)]/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[var(--color-bg)]" />
       </div>
 
-      <motion.div className="max-w-5xl mx-auto text-center" {...animateProps}>
+      {/* decorative blobs (kept for depth) */}
+      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
+        <div className="absolute -top-32 -left-24 w-[28rem] h-[28rem] rounded-full blur-3xl opacity-20 bg-[radial-gradient(circle,var(--color-primary),transparent_60%)]" />
+        <div className="absolute top-20 -right-24 w-[32rem] h-[32rem] rounded-full blur-3xl opacity-15 bg-[radial-gradient(circle,var(--color-secondary),transparent_60%)]" />
+      </div>
+
+      <motion.div className="relative z-10 max-w-5xl mx-auto text-center" {...animateProps}>
         <motion.div variants={fadeUp}>
           <span className="inline-flex items-center gap-2 rounded-full border border-[var(--color-border)] bg-white px-4 py-1.5 text-xs font-semibold tracking-wide uppercase text-[var(--color-primary)] shadow-sm">
             <Sparkles size={14} /> Sabor caseiro em Vila Arens
@@ -235,19 +248,19 @@ function TrustBar() {
 function Services() {
   const services = [
     {
-      icon: UtensilsCrossed,
+      image: buffetImg,
       title: "Self Service por Quilo",
       desc: "Mais de 30 opções na rampa todo dia: arroz, feijão, carnes, massas, saladas frescas e sobremesas. Monte seu prato do seu jeito e pague só pelo peso.",
       featured: true,
     },
     {
-      icon: Package,
+      image: marmitexImg,
       title: "Marmitex Caseira",
       desc: "Marmita quentinha pra levar pro trabalho ou pra casa. Porções generosas, opções P, M e G, sempre com aquele tempero de comida feita em casa.",
       featured: false,
     },
     {
-      icon: Car,
+      image: driveImg,
       title: "Drive-Through Ágil",
       desc: "Sem tempo de descer? Encomende pelo WhatsApp, passe pela janela e retire em minutos. Ideal pra hora do almoço corrido.",
       featured: false,
@@ -278,14 +291,15 @@ function Services() {
                 Mais procurado
               </span>
             )}
-            <div
-              className={`w-12 h-12 rounded-xl flex items-center justify-center ${
-                s.featured ? "bg-white/15" : "bg-[rgba(var(--color-primary-rgb),0.10)]"
-              }`}
-            >
-              <s.icon size={24} className={s.featured ? "text-white" : "text-[var(--color-primary)]"} />
+            <div className="w-full h-40 rounded-xl overflow-hidden mb-4">
+              <img
+                src={s.image}
+                alt={s.title}
+                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
+              />
             </div>
-            <h3 className={`font-display mt-5 text-2xl font-bold ${s.featured ? "text-white" : ""}`}>{s.title}</h3>
+            <h3 className={`font-display text-xl font-bold ${s.featured ? "text-white" : ""}`}>{s.title}</h3>
             <p className={`mt-3 text-sm leading-relaxed ${s.featured ? "text-white/90" : "text-[var(--color-muted-fg)]"}`}>
               {s.desc}
             </p>
@@ -380,28 +394,36 @@ function About() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, margin: "-15% 0px" }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="relative aspect-[4/5] rounded-[var(--radius-card)] overflow-hidden p-8 flex flex-col justify-between text-white bg-gradient-to-br from-[var(--color-primary)] via-[#a8332a] to-[var(--color-secondary)] shadow-[var(--shadow-card-hover)]"
+          className="relative aspect-[4/5] rounded-[var(--radius-card)] overflow-hidden shadow-[var(--shadow-card-hover)]"
         >
-          <div className="flex justify-between items-start">
-            <div>
-              <div className="text-white/70 text-xs uppercase tracking-widest">Desde</div>
-              <div className="font-display text-6xl font-bold leading-none mt-1">2017</div>
+          <img
+            src={aboutImg}
+            alt="Ambiente acolhedor do Rancho da Vila"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-fg)]/90 via-[var(--color-fg)]/40 to-transparent" />
+          <div className="relative z-10 h-full p-8 flex flex-col justify-between text-white">
+            <div className="flex justify-between items-start">
+              <div>
+                <div className="text-white/70 text-xs uppercase tracking-widest">Desde</div>
+                <div className="font-display text-6xl font-bold leading-none mt-1">2017</div>
+              </div>
+              <UtensilsCrossed size={36} className="text-white/30" />
             </div>
-            <UtensilsCrossed size={36} className="text-white/30" />
-          </div>
 
-          <div className="grid grid-cols-2 gap-3">
-            <div className="bg-white/10 backdrop-blur rounded-2xl p-4">
-              <div className="font-display text-3xl font-bold">4,5★</div>
-              <div className="text-xs text-white/80 mt-1">no Google</div>
-            </div>
-            <div className="bg-white/10 backdrop-blur rounded-2xl p-4">
-              <div className="font-display text-3xl font-bold">383</div>
-              <div className="text-xs text-white/80 mt-1">avaliações</div>
-            </div>
-            <div className="bg-white/10 backdrop-blur rounded-2xl p-4 col-span-2">
-              <div className="font-display text-2xl font-bold">+30 opções no buffet diário</div>
-              <div className="text-xs text-white/80 mt-1">trocadas e renovadas todos os dias</div>
+            <div className="grid grid-cols-2 gap-3">
+              <div className="bg-white/10 backdrop-blur rounded-2xl p-4">
+                <div className="font-display text-3xl font-bold">4,5★</div>
+                <div className="text-xs text-white/80 mt-1">no Google</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur rounded-2xl p-4">
+                <div className="font-display text-3xl font-bold">383</div>
+                <div className="text-xs text-white/80 mt-1">avaliações</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur rounded-2xl p-4 col-span-2">
+                <div className="font-display text-2xl font-bold">+30 opções no buffet diário</div>
+                <div className="text-xs text-white/80 mt-1">trocadas e renovadas todos os dias</div>
+              </div>
             </div>
           </div>
         </motion.div>
@@ -416,19 +438,19 @@ function Testimonials() {
     {
       name: "Daniela Rodrigues",
       role: "Cliente desde 2020",
-      avatar: danielaAsset.url,
+      avatar: danielaImg,
       quote: "Comida muito gostosa, parece feita em casa mesmo. Almoço todo dia aqui e nunca enjoo, sempre tem opção diferente.",
     },
     {
       name: "Eddy Paulini",
       role: "Almoça toda semana",
-      avatar: eddyAsset.url,
+      avatar: eddyImg,
       quote: "Atendimento excelente, comida fresca e preço justo. O drive-through salva minha vida na correria do dia a dia.",
     },
     {
       name: "Renan Taveira",
       role: "Frequentador local",
-      avatar: renanAsset.url,
+      avatar: renanImg,
       quote: "Melhor self-service de Vila Arens, na minha opinião. Tempero caseiro, salada fresca e sobremesa boa. Recomendo demais!",
     },
   ];
