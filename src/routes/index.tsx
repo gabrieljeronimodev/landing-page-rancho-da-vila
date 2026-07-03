@@ -120,11 +120,11 @@ function Hero() {
       id="top"
       className="relative overflow-hidden px-6 lg:px-12 pt-12 pb-20 lg:pt-20 lg:pb-28"
     >
-      {/* Background image with dark overlay */}
+      {/* Background image with light overlay */}
       <div aria-hidden className="absolute inset-0 z-0">
         <img src={heroBg} alt="" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-[var(--color-fg)]/80" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/10" />
+        <div className="absolute inset-0 bg-[var(--color-fg)]/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
       </div>
 
       {/* decorative blobs (kept for depth) */}
@@ -142,7 +142,7 @@ function Hero() {
 
         <motion.h1
           variants={fadeUp}
-          className="font-display mt-6 text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight"
+          className="font-display mt-6 text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight text-white"
         >
           Comida fresca, no capricho,
           <span className="block text-[var(--color-primary)]">pelo peso justo.</span>
@@ -150,7 +150,7 @@ function Hero() {
 
         <motion.p
           variants={fadeUp}
-          className="mt-6 text-lg text-[var(--color-muted-fg)] max-w-2xl mx-auto leading-relaxed"
+          className="mt-6 text-lg text-white/90 max-w-2xl mx-auto leading-relaxed"
         >
           Self-service variado, marmitex pra levar e drive-through ágil! Comida de verdade, feita
           todo dia, no coração de Vila Arens. Você paga só pelo que comer.
@@ -257,7 +257,7 @@ function Services() {
   const services = [
     {
       image: buffetImg,
-      title: "Self Service por Quilo",
+      title: "Self Service",
       desc: "Mais de 30 opções na rampa todo dia: arroz, feijão, carnes, massas, saladas frescas e sobremesas. Monte seu prato do seu jeito e pague só pelo peso.",
       featured: true,
     },
