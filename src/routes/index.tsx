@@ -39,7 +39,7 @@ export default function LandingPage() {
   return (
     <div className="pb-16 md:pb-0 bg-[var(--color-bg)] text-[var(--color-fg)]">
       <TopWrapper />
-      <main className="pt-[6.25rem]">
+      <main className="pt-16">
         <Hero />
         <TrustBar />
         <Services />
@@ -122,13 +122,9 @@ function Hero() {
     >
       {/* Background image with dark overlay */}
       <div aria-hidden className="absolute inset-0 z-0">
-        <img
-          src={heroBg}
-          alt=""
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-fg)]/80 via-[var(--color-fg)]/60 to-[var(--color-fg)]/80" />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[var(--color-bg)]" />
+        <img src={heroBg} alt="" className="w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-[var(--color-fg)]/80" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/10" />
       </div>
 
       {/* decorative blobs (kept for depth) */}
@@ -156,10 +152,14 @@ function Hero() {
           variants={fadeUp}
           className="mt-6 text-lg text-[var(--color-muted-fg)] max-w-2xl mx-auto leading-relaxed"
         >
-          Self-service variado, marmitex pra levar e drive-through ágil! Comida de verdade, feita todo dia, no coração de Vila Arens. Você paga só pelo que comer.
+          Self-service variado, marmitex pra levar e drive-through ágil! Comida de verdade, feita
+          todo dia, no coração de Vila Arens. Você paga só pelo que comer.
         </motion.p>
 
-        <motion.div variants={fadeUp} className="mt-9 flex flex-wrap items-center justify-center gap-3">
+        <motion.div
+          variants={fadeUp}
+          className="mt-9 flex flex-wrap items-center justify-center gap-3"
+        >
           <a
             href={WA_LINK}
             target="_blank"
@@ -197,7 +197,15 @@ function Hero() {
 }
 
 /* ---------- Trust bar with count-up ---------- */
-function CountUp({ to, decimals = 0, suffix = "" }: { to: number; decimals?: number; suffix?: string }) {
+function CountUp({
+  to,
+  decimals = 0,
+  suffix = "",
+}: {
+  to: number;
+  decimals?: number;
+  suffix?: string;
+}) {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, margin: "-20% 0px" });
   const reduce = useReducedMotion();
@@ -255,8 +263,8 @@ function Services() {
     },
     {
       image: marmitexImg,
-      title: "Marmitex Caseira",
-      desc: "Marmita quentinha pra levar pro trabalho ou pra casa. Porções generosas, opções P, M e G, sempre com aquele tempero de comida feita em casa.",
+      title: "Marmitex & Acompanhamentos",
+      desc: "Pra levar pra casa ou pro trabalho. Porções generosas, opções P, M e G, sempre com aquele tempero de churrasco servido no capricho.",
       featured: false,
     },
     {
@@ -299,8 +307,12 @@ function Services() {
                 loading="lazy"
               />
             </div>
-            <h3 className={`font-display text-xl font-bold ${s.featured ? "text-white" : ""}`}>{s.title}</h3>
-            <p className={`mt-3 text-sm leading-relaxed ${s.featured ? "text-white/90" : "text-[var(--color-muted-fg)]"}`}>
+            <h3 className={`font-display text-xl font-bold ${s.featured ? "text-white" : ""}`}>
+              {s.title}
+            </h3>
+            <p
+              className={`mt-3 text-sm leading-relaxed ${s.featured ? "text-white/90" : "text-[var(--color-muted-fg)]"}`}
+            >
               {s.desc}
             </p>
             <a
@@ -320,7 +332,15 @@ function Services() {
   );
 }
 
-function SectionHead({ eyebrow, title, children }: { eyebrow: string; title: string; children?: ReactNode }) {
+function SectionHead({
+  eyebrow,
+  title,
+  children,
+}: {
+  eyebrow: string;
+  title: string;
+  children?: ReactNode;
+}) {
   return (
     <motion.div
       className="max-w-3xl mx-auto text-center"
@@ -329,10 +349,16 @@ function SectionHead({ eyebrow, title, children }: { eyebrow: string; title: str
       viewport={{ once: true, margin: "-10% 0px" }}
       variants={stagger}
     >
-      <motion.span variants={fadeUp} className="inline-block text-xs font-bold uppercase tracking-[0.18em] text-[var(--color-primary)]">
+      <motion.span
+        variants={fadeUp}
+        className="inline-block text-xs font-bold uppercase tracking-[0.18em] text-[var(--color-primary)]"
+      >
         {eyebrow}
       </motion.span>
-      <motion.h2 variants={fadeUp} className="font-display mt-3 text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
+      <motion.h2
+        variants={fadeUp}
+        className="font-display mt-3 text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight"
+      >
         {title}
       </motion.h2>
       {children && (
@@ -347,10 +373,26 @@ function SectionHead({ eyebrow, title, children }: { eyebrow: string; title: str
 /* ---------- About ---------- */
 function About() {
   const items = [
-    { icon: HeartHandshake, title: "Atendimento de quem te conhece", desc: "Cliente aqui vira família. A gente já sabe seu prato preferido." },
-    { icon: Leaf, title: "Ingredientes fresquinhos", desc: "Compras diárias na feira e parceiros locais de Jundiaí." },
-    { icon: Clock, title: "Almoço sem espera", desc: "Fila ágil, comida quentinha o tempo todo. Almoço em 20 minutos." },
-    { icon: MapPin, title: "No coração de Vila Arens", desc: "Fácil de estacionar, com drive-through pra quem tá com pressa." },
+    {
+      icon: HeartHandshake,
+      title: "Atendimento de quem te conhece",
+      desc: "Cliente aqui vira família. A gente já sabe seu prato preferido.",
+    },
+    {
+      icon: Leaf,
+      title: "Ingredientes fresquinhos",
+      desc: "Compras diárias na feira e parceiros locais de Jundiaí.",
+    },
+    {
+      icon: Clock,
+      title: "Almoço sem espera",
+      desc: "Fila ágil, comida quentinha o tempo todo. Almoço em 20 minutos.",
+    },
+    {
+      icon: MapPin,
+      title: "No coração de Vila Arens",
+      desc: "Fácil de estacionar, com drive-through pra quem tá com pressa.",
+    },
   ];
   return (
     <section id="about" className="px-6 lg:px-12 py-20 lg:py-28 bg-[var(--color-muted)]">
@@ -361,17 +403,26 @@ function About() {
           viewport={{ once: true, margin: "-15% 0px" }}
           variants={stagger}
         >
-          <motion.span variants={fadeUp} className="text-xs font-bold uppercase tracking-[0.18em] text-[var(--color-primary)]">
+          <motion.span
+            variants={fadeUp}
+            className="text-xs font-bold uppercase tracking-[0.18em] text-[var(--color-primary)]"
+          >
             Sobre o Rancho
           </motion.span>
-          <motion.h2 variants={fadeUp} className="font-display mt-3 text-3xl sm:text-4xl font-bold leading-tight">
+          <motion.h2
+            variants={fadeUp}
+            className="font-display mt-3 text-3xl sm:text-4xl font-bold leading-tight"
+          >
             Comida de família, há mais de 8 anos no bairro.
           </motion.h2>
           <motion.p variants={fadeUp} className="mt-5 text-[var(--color-muted-fg)] leading-relaxed">
-            O Rancho da Vila nasceu da vontade de servir, todo dia, aquele almoço gostoso que a gente comeria em casa. Cozinha aberta, tempero honesto e atendimento que abraça. Esse é o nosso jeito de receber quem chega.
+            O Rancho da Vila nasceu da vontade de servir, todo dia, aquele almoço gostoso que a
+            gente comeria em casa. Cozinha aberta, tempero honesto e atendimento que abraça. Esse é
+            o nosso jeito de receber quem chega.
           </motion.p>
           <motion.p variants={fadeUp} className="mt-3 text-[var(--color-muted-fg)] leading-relaxed">
-            Mais do que um restaurante, somos ponto de encontro de quem trabalha, mora e passa por Vila Arens.
+            Mais do que um restaurante, somos ponto de encontro de quem trabalha, mora e passa por
+            Vila Arens.
           </motion.p>
 
           <motion.div variants={stagger} className="mt-8 grid sm:grid-cols-2 gap-5">
@@ -382,7 +433,9 @@ function About() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-sm">{it.title}</h3>
-                  <p className="text-xs text-[var(--color-muted-fg)] mt-0.5 leading-relaxed">{it.desc}</p>
+                  <p className="text-xs text-[var(--color-muted-fg)] mt-0.5 leading-relaxed">
+                    {it.desc}
+                  </p>
                 </div>
               </motion.div>
             ))}
@@ -439,19 +492,22 @@ function Testimonials() {
       name: "Daniela Rodrigues",
       role: "Cliente desde 2020",
       avatar: danielaImg,
-      quote: "Comida muito gostosa, parece feita em casa mesmo. Almoço todo dia aqui e nunca enjoo, sempre tem opção diferente.",
+      quote:
+        "Comida muito gostosa, parece feita em casa mesmo. Almoço todo dia aqui e nunca enjoo, sempre tem opção diferente.",
     },
     {
       name: "Eddy Paulini",
       role: "Almoça toda semana",
       avatar: eddyImg,
-      quote: "Atendimento excelente, comida fresca e preço justo. O drive-through salva minha vida na correria do dia a dia.",
+      quote:
+        "Atendimento excelente, comida fresca e preço justo. O drive-through salva minha vida na correria do dia a dia.",
     },
     {
       name: "Renan Taveira",
       role: "Frequentador local",
       avatar: renanImg,
-      quote: "Melhor self-service de Vila Arens, na minha opinião. Tempero caseiro, salada fresca e sobremesa boa. Recomendo demais!",
+      quote:
+        "Melhor self-service de Vila Arens, na minha opinião. Tempero caseiro, salada fresca e sobremesa boa. Recomendo demais!",
     },
   ];
   return (
@@ -475,14 +531,23 @@ function Testimonials() {
           >
             <div className="flex gap-0.5">
               {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} size={16} className="fill-[var(--color-accent)] text-[var(--color-accent)]" />
+                <Star
+                  key={i}
+                  size={16}
+                  className="fill-[var(--color-accent)] text-[var(--color-accent)]"
+                />
               ))}
             </div>
             <blockquote className="mt-4 text-[var(--color-fg)] leading-relaxed flex-1">
               "{t.quote}"
             </blockquote>
             <figcaption className="mt-6 flex items-center gap-3 pt-5 border-t border-[var(--color-border)]">
-              <img src={t.avatar} alt={t.name} loading="lazy" className="w-11 h-11 rounded-full object-cover" />
+              <img
+                src={t.avatar}
+                alt={t.name}
+                loading="lazy"
+                className="w-11 h-11 rounded-full object-cover"
+              />
               <div>
                 <div className="font-semibold text-sm">{t.name}</div>
                 <div className="text-xs text-[var(--color-muted-fg)]">{t.role}</div>
@@ -506,12 +571,16 @@ function CTASection() {
         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
         className="max-w-6xl mx-auto rounded-[var(--radius-card)] px-8 py-14 lg:py-16 text-center text-white bg-gradient-to-br from-[var(--color-primary)] via-[#b73629] to-[var(--color-secondary)] shadow-[var(--shadow-card-hover)] relative overflow-hidden"
       >
-        <div aria-hidden className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_top_right,white,transparent_60%)]" />
+        <div
+          aria-hidden
+          className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_top_right,white,transparent_60%)]"
+        />
         <h2 className="font-display relative text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight max-w-3xl mx-auto">
           Bate aquela fome? Manda mensagem.
         </h2>
         <p className="relative mt-4 text-white/90 max-w-xl mx-auto">
-          Encomende sua marmitex, reserve sua mesa ou tire dúvidas sobre o cardápio do dia. Respondemos rapidinho.
+          Encomende sua marmitex, reserve sua mesa ou tire dúvidas sobre o cardápio do dia.
+          Respondemos rapidinho.
         </p>
         <a
           href={WA_LINK}
@@ -543,32 +612,85 @@ function Contact() {
       <div className="mt-12 max-w-6xl mx-auto grid lg:grid-cols-2 gap-8">
         <div className="bg-white rounded-[var(--radius-card)] p-7 lg:p-8 shadow-[var(--shadow-card)] flex flex-col gap-6">
           <div className="flex flex-col gap-4">
-            <InfoRow icon={MapPin} title="Endereço" text="R. Gen. Carneiro, 223, Vila Arens, Jundiaí - SP" />
-            <InfoRow icon={Phone} title="Telefone / WhatsApp" text="(11) 92575-0589" href={WA_LINK} />
+            <InfoRow
+              icon={MapPin}
+              title="Endereço"
+              text="R. Gen. Carneiro, 223, Vila Arens, Jundiaí - SP"
+            />
+            <InfoRow
+              icon={Phone}
+              title="Telefone / WhatsApp"
+              text="(11) 92575-0589"
+              href={WA_LINK}
+            />
             <InfoRow icon={Clock} title="Funcionamento" text="Segunda a Sábado, das 11h às 14h30" />
           </div>
 
-          <form onSubmit={onSubmit} className="flex flex-col gap-4 pt-2 border-t border-[var(--color-border)] mt-2">
+          <form
+            onSubmit={onSubmit}
+            className="flex flex-col gap-4 pt-2 border-t border-[var(--color-border)] mt-2"
+          >
             <div>
-              <label htmlFor="name" className="block text-xs font-semibold mb-1.5 text-[var(--color-fg)]">Nome</label>
-              <input id="name" name="name" type="text" required maxLength={80}
-                value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })}
-                className={inputClass} placeholder="Seu nome" />
+              <label
+                htmlFor="name"
+                className="block text-xs font-semibold mb-1.5 text-[var(--color-fg)]"
+              >
+                Nome
+              </label>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                required
+                maxLength={80}
+                value={form.name}
+                onChange={(e) => setForm({ ...form, name: e.target.value })}
+                className={inputClass}
+                placeholder="Seu nome"
+              />
             </div>
             <div>
-              <label htmlFor="phone" className="block text-xs font-semibold mb-1.5 text-[var(--color-fg)]">Telefone</label>
-              <input id="phone" name="phone" type="tel" required maxLength={20}
-                value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                className={inputClass} placeholder="(11) 99999-9999" />
+              <label
+                htmlFor="phone"
+                className="block text-xs font-semibold mb-1.5 text-[var(--color-fg)]"
+              >
+                Telefone
+              </label>
+              <input
+                id="phone"
+                name="phone"
+                type="tel"
+                required
+                maxLength={20}
+                value={form.phone}
+                onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                className={inputClass}
+                placeholder="(11) 99999-9999"
+              />
             </div>
             <div>
-              <label htmlFor="message" className="block text-xs font-semibold mb-1.5 text-[var(--color-fg)]">Mensagem</label>
-              <textarea id="message" name="message" rows={4} required maxLength={600}
-                value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })}
-                className={inputClass} placeholder="Como podemos ajudar?" />
+              <label
+                htmlFor="message"
+                className="block text-xs font-semibold mb-1.5 text-[var(--color-fg)]"
+              >
+                Mensagem
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                rows={4}
+                required
+                maxLength={600}
+                value={form.message}
+                onChange={(e) => setForm({ ...form, message: e.target.value })}
+                className={inputClass}
+                placeholder="Como podemos ajudar?"
+              />
             </div>
-            <button type="submit"
-              className="w-full inline-flex items-center justify-center bg-[var(--color-primary)] text-white rounded-[var(--radius-btn)] py-3 font-semibold hover:opacity-90 transition-opacity">
+            <button
+              type="submit"
+              className="w-full inline-flex items-center justify-center bg-[var(--color-primary)] text-white rounded-[var(--radius-btn)] py-3 font-semibold hover:opacity-90 transition-opacity"
+            >
               Enviar Mensagem <ArrowRight size={16} className="ml-2" />
             </button>
           </form>
@@ -591,21 +713,37 @@ function Contact() {
   );
 }
 
-function InfoRow({ icon: Icon, title, text, href }: { icon: typeof MapPin; title: string; text: string; href?: string }) {
+function InfoRow({
+  icon: Icon,
+  title,
+  text,
+  href,
+}: {
+  icon: typeof MapPin;
+  title: string;
+  text: string;
+  href?: string;
+}) {
   const body = (
     <div className="flex gap-4 items-start">
       <div className="shrink-0 w-11 h-11 rounded-xl bg-[rgba(var(--color-primary-rgb),0.10)] flex items-center justify-center">
         <Icon size={20} className="text-[var(--color-primary)]" />
       </div>
       <div>
-        <div className="text-xs uppercase tracking-wider text-[var(--color-muted-fg)] font-semibold">{title}</div>
+        <div className="text-xs uppercase tracking-wider text-[var(--color-muted-fg)] font-semibold">
+          {title}
+        </div>
         <div className="text-sm font-medium mt-0.5">{text}</div>
       </div>
     </div>
   );
   return href ? (
-    <a href={href} target="_blank" rel="noopener" className="hover:opacity-80 transition-opacity">{body}</a>
-  ) : body;
+    <a href={href} target="_blank" rel="noopener" className="hover:opacity-80 transition-opacity">
+      {body}
+    </a>
+  ) : (
+    body
+  );
 }
 
 /* ---------- Footer ---------- */
@@ -615,10 +753,25 @@ function Footer() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
         <div>
           <div className="font-display text-[1.375rem] font-bold text-white">Rancho da Vila</div>
-          <p className="text-sm text-white/55 mt-1">Comida caseira no peso, no coração de Jundiaí.</p>
+          <p className="text-sm text-white/55 mt-1">
+            Comida caseira no peso, no coração de Jundiaí.
+          </p>
           <div className="mt-4 flex gap-3">
-            <SocialLink href="https://www.instagram.com/gabrieljeronimodeveloper/" label="Instagram">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+            <SocialLink
+              href="https://www.instagram.com/gabrieljeronimodeveloper/"
+              label="Instagram"
+            >
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden
+              >
                 <rect x="2" y="2" width="20" height="20" rx="5" />
                 <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
                 <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
@@ -644,7 +797,9 @@ function Footer() {
               ["Depoimentos", "#testimonials"],
               ["Contato", "#contact"],
             ].map(([label, href]) => (
-              <a key={href} href={href} className="hover:text-white transition-colors duration-150">{label}</a>
+              <a key={href} href={href} className="hover:text-white transition-colors duration-150">
+                {label}
+              </a>
             ))}
           </div>
         </div>
@@ -653,20 +808,32 @@ function Footer() {
           <div className="font-semibold text-white text-sm">Contato</div>
           <div className="flex flex-col gap-2 mt-3 text-sm text-white/60">
             <span>Vila Arens, Jundiaí - SP</span>
-            <a href={WA_LINK} className="hover:text-white transition-colors">(11) 92575-0589</a>
+            <a href={WA_LINK} className="hover:text-white transition-colors">
+              (11) 92575-0589
+            </a>
             <span>Seg a Sáb: 11h às 14h30</span>
           </div>
         </div>
       </div>
 
       <div className="border-t border-white/10 mt-10 pt-6 flex justify-between flex-wrap gap-4 max-w-5xl mx-auto">
-        <span className="text-xs text-white/40">© 2026 Rancho da Vila. Todos os direitos reservados.</span>
+        <span className="text-xs text-white/40">
+          © 2026 Rancho da Vila. Todos os direitos reservados.
+        </span>
       </div>
     </footer>
   );
 }
 
-function SocialLink({ href, label, children }: { href: string; label: string; children: ReactNode }) {
+function SocialLink({
+  href,
+  label,
+  children,
+}: {
+  href: string;
+  label: string;
+  children: ReactNode;
+}) {
   return (
     <a
       href={href}
