@@ -178,7 +178,7 @@ function Hero() {
 
         <motion.div
           variants={fadeUp}
-          className="mt-12 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-[var(--color-muted-fg)]"
+          className="mt-12 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-white"
         >
           <span className="inline-flex items-center gap-2">
             <Star size={16} className="fill-[var(--color-accent)] text-[var(--color-accent)]" />
